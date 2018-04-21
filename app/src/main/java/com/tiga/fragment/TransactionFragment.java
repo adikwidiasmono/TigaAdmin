@@ -39,9 +39,8 @@ public class TransactionFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private String strAgentId;
-    private int year, month, day;
-    private DatePicker datePicker;
-    private Calendar calendar;
+
+
 
 
     public static TransactionFragment createFor(String text) {
@@ -107,7 +106,7 @@ public class TransactionFragment extends Fragment {
                             .error(R.drawable.ic_error)
                             .into(holder.ivItem);
 
-                    sb.append(ti.getQuantity() + " unit " + ti.getProduct() + "\n Rp " + ti.getPrice());
+                    sb.append(ti.getQuantity() + " unit " + ti.getProduct() + "\n Rp " + ti.getPrice() + "\n");
                 }
                 holder.tvTransDetail.setText(sb.toString());
 
@@ -139,8 +138,6 @@ public class TransactionFragment extends Fragment {
         private TextView tvItemType, tvTransDetail, tvTransDate;
         private ImageView ivItem;
 
-        private EditText etInputDate;
-
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -150,23 +147,6 @@ public class TransactionFragment extends Fragment {
 
             ivItem = itemView.findViewById(R.id.iv_item);
 
-            etInputDate = itemView.findViewById(R.id.input_date);
         }
     }
-
-    private Dialog showCalendarPicker() {
-        calendar = Calendar.getInstance();
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        return new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
-    }
-
-    private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-
-        }
-    };
 }

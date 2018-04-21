@@ -79,22 +79,22 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         Fragment selectedScreen = new Fragment();
         switch (position) {
             case MENU_1: {
-                toolbar.setTitle("Home");
+                toolbar.setTitle("Halaman Awal");
                 selectedScreen = AccountFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_2: {
-                toolbar.setTitle("Stok Gas");
+                toolbar.setTitle("Cek Stok Gas");
                 selectedScreen = StockFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_3: {
-                toolbar.setTitle("Manual Restock");
+                toolbar.setTitle("Transaksi Agen");
                 selectedScreen = AccountFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_4: {
-                toolbar.setTitle("Logout");
+                toolbar.setTitle("Keluar");
                 finish();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;

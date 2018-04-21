@@ -11,33 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/input_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/input_date"
-                android:drawableEnd="@drawable/ic_date_range_24dp"
-                android:onClick="showCalendarPicker"/>
-
-
-        </LinearLayout>
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_transaction"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:scrollbars="none" />
-
 
     </LinearLayout>
 
