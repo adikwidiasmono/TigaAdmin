@@ -59,14 +59,21 @@ public class AgentFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         //edit query to select agen based on city and area
-        Query query = FirebaseDatabase.getInstance().getReference().child("AGEN").orderByChild("CreateDate").startAt(-1 * new Date().getTime());
+        Query query = FirebaseDatabase.getInstance()
+                .getReference().child("AGEN")
+                .orderByChild("CreateDate")
+                .startAt(-1 * new Date().getTime());
 
-        FirebaseRecyclerOptions<Agen> options = new FirebaseRecyclerOptions.Builder<Agen>().setQuery(query, Agen.class).build();
+        FirebaseRecyclerOptions<Agen> options = new FirebaseRecyclerOptions
+                .Builder<Agen>()
+                .setQuery(query, Agen.class)
+                .build();
 
         fbAdapter = new FirebaseRecyclerAdapter<Agen, ViewHolder>(options) {
             @Override
             public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_agent, parent, false);
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.card_agent, parent, false);
 
                 return new ViewHolder(view);
             }
@@ -81,7 +88,7 @@ public class AgentFragment extends Fragment {
                         Intent intent = new Intent(getActivity(), DetailAgentActivity.class);
                         intent.putExtra("AgentName", agen.getAgentName());
                         getActivity().startActivity(intent);
-                        getActivity().finish();
+
                     }
                 });
             }
@@ -105,8 +112,8 @@ public class AgentFragment extends Fragment {
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvAgentName, tvAgentStatus;
 
-        public ViewHolder(View view) {
-            super(view);
+        public ViewHolder(View itemView) {
+            super(itemView);
 
             tvAgentName = itemView.findViewById(R.id.tv_agent_name);
             tvAgentStatus = itemView.findViewById(R.id.tv_agent_status);

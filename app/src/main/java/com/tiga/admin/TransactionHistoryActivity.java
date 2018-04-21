@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.tiga.fragment.TransactionFragment;
+
 
 public class TransactionHistoryActivity extends AppCompatActivity {
 
@@ -19,6 +21,9 @@ public class TransactionHistoryActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String agentId = intent.getStringExtra("AgentId");
+        String agentName = intent.getStringExtra("AgentName");
+
+        System.out.print("Agent ID: " + agentId);
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.history_trans));
@@ -29,11 +34,14 @@ public class TransactionHistoryActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        Fragment transaction = TransactionFragment.createFor(agentId);
+        showFragment(transaction);
     }
 
     private void showFragment(Fragment fragment) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.detail_container, fragment)
+                .replace(R.id.history_container, fragment)
                 .commit();
     }
 }

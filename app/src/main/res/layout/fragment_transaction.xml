@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -22,14 +22,12 @@
 
             <EditText
                 android:id="@+id/input_date"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:ems="10"
-                android:inputType="date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:hint="@string/input_date"
                 android:drawableEnd="@drawable/ic_date_range_24dp"
-                />
+                android:onClick="showCalendarPicker"/>
+
 
         </LinearLayout>
 
@@ -39,6 +37,8 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:scrollbars="none" />
+
+
     </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

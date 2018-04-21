@@ -69,7 +69,6 @@ public class AccountFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 getActivity().startActivity(intent);
-                getActivity().finish();
             }
         });
 
@@ -94,7 +93,6 @@ public class AccountFragment extends Fragment {
             protected void onBindViewHolder(ViewHolder holder, int position, Agen agen) {
                 holder.tvName.setText(agen.getAgentName());
                 holder.tvStatus.setText(agen.getStatus());
-
             }
         };
 

@@ -13,7 +13,7 @@ public class DetailAgentActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
-    private String agentName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,10 @@ public class DetailAgentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_agent);
 
         Intent intent = getIntent();
-        agentName = intent.getStringExtra("agentName");
+        String agentName = intent.getStringExtra("AgentName");
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.detail_agent) + agentName);
+        toolbar.setTitle(getString(R.string.detail_agent) + " " + agentName);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

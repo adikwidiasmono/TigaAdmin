@@ -22,7 +22,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CheckStockActivity" />
         <activity android:name=".DetailAgentActivity" />
-        <activity android:name=".TransactionHistoryActivity" />
+        <activity android:name=".TransactionHistoryActivity"
+            android:windowSoftInputMode="adjustPan" />
 
     </application>
 

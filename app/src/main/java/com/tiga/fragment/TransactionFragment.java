@@ -1,13 +1,18 @@
 package com.tiga.fragment;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,6 +29,7 @@ import com.tiga.recview.model.TransactionItems;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +39,10 @@ public class TransactionFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private String strAgentId;
+    private int year, month, day;
+    private DatePicker datePicker;
+    private Calendar calendar;
+
 
     public static TransactionFragment createFor(String text) {
         TransactionFragment fragment = new TransactionFragment();
@@ -89,13 +99,11 @@ public class TransactionFragment extends Fragment {
 
             @Override
             protected void onBindViewHolder(ViewHolder holder, int position, Penjualan penjualan) {
-
                 StringBuilder sb = new StringBuilder();
-
                 for (TransactionItems ti : penjualan.getItems()) {
                     Picasso.with(getActivity())
                             .load(ti.getImageURL())
-                            .placeholder(R.id.iv_item)
+                            .placeholder(R.drawable.ic_loop_24dp)
                             .error(R.drawable.ic_error)
                             .into(holder.ivItem);
 
@@ -104,20 +112,34 @@ public class TransactionFragment extends Fragment {
                 holder.tvTransDetail.setText(sb.toString());
 
                 Timestamp stamp = new Timestamp(penjualan.getTransactionDate());
-                holder.tvTransDate.setText(new SimpleDateFormat("dd MMMM yyyy").format(new Date(stamp.getTime())));
+                holder.tvTransDate.setText(new SimpleDateFormat("dd MMMM yyyy")
+                        .format(new Date(stamp.getTime())));
                 holder.tvTransDetail.setText(sb.toString());
 
                 if (penjualan.getKKSOwner()!=null) {
-                    holder.tvItemType.setText("SUBSISDI");
-                } else holder.tvItemType.setText("NON-SUBSIDI");
+                    holder.tvItemType.setText(getResources().getString(R.string.pso));
+                } else holder.tvItemType.setText(getResources().getString(R.string.non_pso));
+
             }
         };
+
+        recyclerView.setAdapter(fbAdapter);
+
+        // Set layout manager to position the items
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        // Reverse adding new data
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+
+        recyclerView.setLayoutManager(mLayoutManager);
     }
 
 
     private class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tvItemType, tvTransDetail, tvTransDate;
         private ImageView ivItem;
+
+        private EditText etInputDate;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -127,6 +149,24 @@ public class TransactionFragment extends Fragment {
             tvTransDate = itemView.findViewById(R.id.tv_trans_date);
 
             ivItem = itemView.findViewById(R.id.iv_item);
+
+            etInputDate = itemView.findViewById(R.id.input_date);
         }
     }
+
+    private Dialog showCalendarPicker() {
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        return new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
+    }
+
+    private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+        }
+    };
 }

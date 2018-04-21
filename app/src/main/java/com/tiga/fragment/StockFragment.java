@@ -159,7 +159,7 @@ public class StockFragment extends Fragment {
                 intent.putExtra("City", citySelected);
                 intent.putExtra("Area", areaSelected);
                 getActivity().startActivity(intent);
-                getActivity().finish();
+
             }
         });
     }

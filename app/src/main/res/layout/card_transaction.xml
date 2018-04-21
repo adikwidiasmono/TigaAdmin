@@ -37,9 +37,8 @@
 
                 <ImageView
                     android:id="@+id/iv_item"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_patient_64dp" />
+                    android:layout_width="64dp"
+                    android:layout_height="64dp" />
 
             </LinearLayout>
 
@@ -75,7 +74,6 @@
                     android:textColor="@color/c_black"
                     android:textSize="14sp" />
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
 

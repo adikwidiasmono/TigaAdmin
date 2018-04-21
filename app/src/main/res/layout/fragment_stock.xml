@@ -24,13 +24,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Daftar Agen"
-                android:textColor="@color/c_green_soft" />
+                android:textColor="@color/c_green_dark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="8dp"
-                android:background="@color/c_green_soft" />
+                android:background="@color/c_green_dark" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView

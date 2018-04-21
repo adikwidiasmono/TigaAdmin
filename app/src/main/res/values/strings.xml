@@ -29,4 +29,6 @@
     <string name="stok_ease9">Stok Ease 9Kg</string>
     <string name="history_trans">Riwayat Transaksi</string>
     <string name="input_date">Input Date</string>
+    <string name="non_pso">NON-SUBSIDI</string>
+    <string name="pso">SUBSIDI</string>
 </resources>

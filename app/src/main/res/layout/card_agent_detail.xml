@@ -38,9 +38,8 @@
 
                 <ImageView
                     android:id="@+id/iv_agenPic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_account_48dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     />
 
             </LinearLayout>
@@ -58,7 +57,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_agentName"
+                    android:id="@+id/tv_namaAgen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wawan Budiman"
@@ -72,7 +71,7 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@+id/tv_agentStatus"
+                    android:id="@+id/tv_statusAgen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Agen tidak nakal"
@@ -156,7 +155,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/history_trans"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_gravity="end"/>
             </LinearLayout>
 
         </LinearLayout>

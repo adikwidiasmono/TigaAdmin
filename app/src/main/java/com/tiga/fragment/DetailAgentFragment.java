@@ -57,25 +57,29 @@ public class DetailAgentFragment extends Fragment {
 
         recyclerView = v.findViewById(R.id.rv_detail_agen);
         Intent intent = getActivity().getIntent();
-        strAgentName = intent.getStringExtra("strAgentName");
+        strAgentName = intent.getStringExtra("AgentName");
+        System.out.println("agent name: " + strAgentName);
 
         return v;
     }
 
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
-
         Query query = FirebaseDatabase.getInstance()
                 .getReference().child("AGEN")
                 .orderByChild("AgentName")
                 .equalTo(strAgentName);
 
-        FirebaseRecyclerOptions<Agen> options = new FirebaseRecyclerOptions.Builder<Agen>().setQuery(query, Agen.class).build();
+        FirebaseRecyclerOptions<Agen> options = new FirebaseRecyclerOptions
+                .Builder<Agen>()
+                .setQuery(query, Agen.class)
+                .build();
 
         fbAdapter = new FirebaseRecyclerAdapter<Agen, ViewHolder>(options) {
             @Override
             public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_agent, parent, false);
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.card_agent_detail, parent, false);
 
                 return new ViewHolder(view);
             }
@@ -84,16 +88,16 @@ public class DetailAgentFragment extends Fragment {
             protected void onBindViewHolder(ViewHolder holder, int position, final Agen agen) {
                 holder.tvAgentName.setText(agen.getAgentName());
                 holder.tvAgentStatus.setText(agen.getStatus());
-                holder.tvStokElpiji3Kg.setText(agen.getStokElpiji3Kg());
-                holder.tvStokElpiji12Kg.setText(agen.getStokElpiji12Kg());
-                holder.tvStokBright5Kg.setText(agen.getStokBright5Kg());
-                holder.tvStokBright12Kg.setText(agen.getStokBright12Kg());
-                holder.tvStokEase3Kg.setText(agen.getStokEase14Kg());
-                holder.tvStokEase9Kg.setText(agen.getStokEase9Kg());
+                holder.tvStokElpiji3Kg.setText(agen.getStokElpiji3Kg()+"");
+                holder.tvStokElpiji12Kg.setText(agen.getStokElpiji12Kg()+"");
+                holder.tvStokBright5Kg.setText(agen.getStokBright5Kg()+"");
+                holder.tvStokBright12Kg.setText(agen.getStokBright12Kg()+"");
+                holder.tvStokEase3Kg.setText(agen.getStokEase14Kg()+"");
+                holder.tvStokEase9Kg.setText(agen.getStokEase9Kg()+"");
 
                 Picasso.with(getActivity())
                         .load(agen.getImageURL())
-                        .placeholder(R.id.iv_agenPic)
+                        .placeholder(R.drawable.ic_loop_24dp)
                         .error(R.drawable.ic_error)
                         .into(holder.ivAgentPic);
 
@@ -104,7 +108,7 @@ public class DetailAgentFragment extends Fragment {
                         intent.putExtra("AgentName", agen.getAgentName());
                         intent.putExtra("AgentId", agen.getAgentId());
                         getActivity().startActivity(intent);
-                        getActivity().finish();
+
                     }
                 });
             }
@@ -122,18 +126,18 @@ public class DetailAgentFragment extends Fragment {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvAgentName, tvAgentStatus,
+        public TextView tvAgentName, tvAgentStatus,
                 tvStokBright12Kg, tvStokBright5Kg,
                 tvStokEase3Kg, tvStokEase9Kg,
                 tvStokElpiji12Kg, tvStokElpiji3Kg;
-        private ImageView ivAgentPic;
-        private Button btn_history;
+        public ImageView ivAgentPic;
+        public Button btn_history;
 
-        private ViewHolder(View view) {
-            super(view);
+        public ViewHolder(View itemView) {
+            super(itemView);
 
-            tvAgentName = itemView.findViewById(R.id.tv_agentName);
-            tvAgentStatus = itemView.findViewById(R.id.tv_agentName);
+            tvAgentName = itemView.findViewById(R.id.tv_namaAgen);
+            tvAgentStatus = itemView.findViewById(R.id.tv_statusAgen);
             tvStokBright5Kg = itemView.findViewById(R.id.tv_bright5);
             tvStokBright12Kg = itemView.findViewById(R.id.tv_bright12);
             tvStokEase3Kg = itemView.findViewById(R.id.tv_ease3);
