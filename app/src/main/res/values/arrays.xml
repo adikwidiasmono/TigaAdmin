@@ -1,18 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="ld_activityScreenTitles">
-        <item>Menu_1</item>
-        <item>Menu_2</item>
-        <item>Menu_3</item>
-        <item>Menu_4</item>
-        <item>Menu_5</item>
+        <item>Home</item>
+        <item>Stok Gas</item>
+        <item>Manual Restock</item>
+        <item>Logout</item>
     </string-array>
 
     <array name="ld_activityScreenIcons">
         <item>@drawable/ic_home_32dp</item>
-        <item>@drawable/ic_home_32dp</item>
-        <item>@drawable/ic_home_32dp</item>
-        <item>@drawable/ic_home_32dp</item>
-        <item>@drawable/ic_home_32dp</item>
+        <item>@drawable/ic_flame_24dp</item>
+        <item>@drawable/ic_loop_24dp</item>
+        <item>@drawable/ic_logout_24dp</item>
     </array>
+
+    <string-array name="ld_provinceList">
+        <item>Select Province…</item>
+        <item>DKI Jakarta</item>
+        <item>Banten</item>
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+        <item>Jawa Timur</item>
+        <item>DI Yogyakarta</item>
+    </string-array>
+
+    <string-array name="ld_JakartaCity">
+        <item>Jakarta Utara</item>
+        <item>Jakarta Barat</item>
+        <item>Jakarta Timur</item>
+        <item>Jakarta Selatan</item>
+        <item>Kep. Seribu</item>
+    </string-array>
+
+    <string-array name="ld_BantenCity">
+        <item>Cilegon</item>
+        <item>Serang</item>
+        <item>Tangerang</item>
+        <item>Tangerang Selatan</item>
+    </string-array>
+
+    <string-array name="ld_JawaBaratCity">
+        <item>Bandung</item>
+        <item>Banjar</item>
+        <item>Bekasi</item>
+        <item>Bogor</item>
+        <item>Cimahi</item>
+        <item>Cirebon</item>
+        <item>Depok</item>
+        <item>Sukabumi</item>
+        <item>Tasikmalaya</item>
+    </string-array>
+
+    <string-array name="ld_JawaTengahCity">
+        <item>Magelang</item>
+        <item>Pekalongan</item>
+        <item>Salatiga</item>
+        <item>Semarang</item>
+        <item>Surakarta</item>
+        <item>Tegal</item>
+    </string-array>
+
+    <string-array name="ld_JawaTimurCity">
+        <item>Batu</item>
+        <item>Blitar</item>
+        <item>Kediri</item>
+        <item>Madiun</item>
+        <item>Malang</item>
+        <item>Mojokerto</item>
+        <item>Pasuruan</item>
+        <item>Probolinggo</item>
+        <item>Surabaya</item>
+    </string-array>
+
+    <string-array name="ld_YogyaCity">
+        <item>Kab Bantul</item>
+        <item>Kab Gunungkidul</item>
+        <item>Kab Kulon Progo</item>
+        <item>Kab Sleman</item>
+        <item>Yogyakarta</item>
+    </string-array>
+
+    <string-array name="ld_areaList">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 </resources>

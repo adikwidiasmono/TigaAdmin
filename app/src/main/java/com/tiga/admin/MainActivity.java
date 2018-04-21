@@ -1,6 +1,7 @@
 package com.tiga.admin;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.tiga.fragment.AccountFragment;
+import com.tiga.fragment.StockFragment;
 import com.tiga.menu.DrawerAdapter;
 import com.tiga.menu.DrawerItem;
 import com.tiga.menu.SimpleItem;
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     private static final int MENU_2 = 1;
     private static final int MENU_3 = 2;
     private static final int MENU_4 = 3;
-    private static final int MENU_5 = 4;
 
     private String[] screenTitles;
     private Drawable[] screenIcons;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         setContentView(R.layout.activity_main);
 
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
 
         slidingRootNav = new SlidingRootNavBuilder(this)
@@ -56,11 +58,10 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         screenTitles = loadScreenTitles();
 
         DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(MENU_1),
-                createItemFor(MENU_2).setChecked(true),
+                createItemFor(MENU_1).setChecked(true),
+                createItemFor(MENU_2),
                 createItemFor(MENU_3),
-                createItemFor(MENU_4),
-                createItemFor(MENU_5)
+                createItemFor(MENU_4)
         ));
         adapter.setListener(this);
 
@@ -69,36 +70,33 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(adapter);
 
-        adapter.setSelected(MENU_2);
+        adapter.setSelected(MENU_1);
     }
 
     @Override
     public void onItemSelected(int position) {
-        Fragment selectedScreen = AccountFragment.createFor(screenTitles[position]);
+        //Fragment selectedScreen = AccountFragment.createFor(screenTitles[position]);
+        Fragment selectedScreen = new Fragment();
         switch (position) {
             case MENU_1: {
-                toolbar.setTitle("Menu 1");
+                toolbar.setTitle("Home");
                 selectedScreen = AccountFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_2: {
-                toolbar.setTitle("Menu 2");
-                selectedScreen = AccountFragment.createFor(screenTitles[position]);
+                toolbar.setTitle("Stok Gas");
+                selectedScreen = StockFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_3: {
-                toolbar.setTitle("Menu 3");
+                toolbar.setTitle("Manual Restock");
                 selectedScreen = AccountFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_4: {
-                toolbar.setTitle("Menu 4");
-                selectedScreen = AccountFragment.createFor(screenTitles[position]);
-                break;
-            }
-            case MENU_5: {
-                toolbar.setTitle("Menu 5");
-                selectedScreen = AccountFragment.createFor(screenTitles[position]);
+                toolbar.setTitle("Logout");
+                finish();
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 break;
             }
             default: {
@@ -111,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
     private void showFragment(Fragment fragment) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
+                .replace(R.id.main_container, fragment)
                 .commit();
     }
 
@@ -143,10 +141,5 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     @ColorInt
     private int color(@ColorRes int res) {
         return ContextCompat.getColor(this, res);
-    }
-
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
     }
 }

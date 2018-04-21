@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
+        /*switch (requestCode) {
             case PHONE_STATE_PERMISSION: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 return;
             }
-        }
+        }*/
     }
 
     @SuppressLint("MissingPermission")

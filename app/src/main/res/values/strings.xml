@@ -1,9 +1,32 @@
 <resources>
-    <string name="app_name">Admin Tiga</string>
+    <string name="app_name">Tepat Tiga</string>
+    <string name="admin_name">ADMIN</string>
+    <string name="admin_login">Admin Login</string>
+    <string name="admin_email">admin.tepat@mail.com</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="balance">Balance</string>
     <string name="balance_currency">$</string>
-    <string name="balance_amount">532.8</string>
+    <string name="balance_amount">799.000</string>
+    <string name="welcome">Selamat datang,</string>
+    <string name="balance_idr">Rp</string>
+    <string name="saldo">Saldo</string>
+    <string name="title_lokasi">Lokasi Distribusi Gas</string>
+    <string name="provinsi">Provinsi</string>
+    <string name="kota">Kota</string>
+    <string name="area">Area</string>
+    <string name="check_stok">Cek Stok</string>
+    <string name="citizen_id">2212113009800001</string>
+    <string name="admin_address">Jakarta Selatan</string>
+    <string name="gas_stock">Stok Gas : </string>
+    <string name="detail_agent">Detail Agen: </string>
+    <string name="stok_bright5.5">Stok Bright 5,5Kg</string>
+    <string name="stok_bright12">Stok Bright 12Kg</string>
+    <string name="stok_elpiji3">Stok Elpiji 3Kg </string>
+    <string name="stok_elpiji12">Stok Elpiji 12Kg</string>
+    <string name="stok_ease3">Stok Ease 3Kg</string>
+    <string name="stok_ease9">Stok Ease 9Kg</string>
+    <string name="history_trans">Riwayat Transaksi</string>
+    <string name="input_date">Input Date</string>
 </resources>

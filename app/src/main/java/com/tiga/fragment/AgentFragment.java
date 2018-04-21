@@ -11,34 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.tiga.admin.LoginActivity;
-import com.tiga.admin.R;
-import com.tiga.recview.model.Agen;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.tiga.admin.DetailAgentActivity;
+import com.tiga.admin.R;
+import com.tiga.recview.model.Agen;
 
 import java.util.Date;
 
-/**
- * Created by adikwidiasmono on 15/11/17.
- */
-
-public class AccountFragment extends Fragment {
-
-    private static final String EXTRA_TEXT = "text";
+public class AgentFragment extends Fragment {
 
     private FirebaseRecyclerAdapter fbAdapter;
     private RecyclerView recyclerView;
 
-    private TextView btLogout;
-
-    public static AccountFragment createFor(String text) {
-        AccountFragment fragment = new AccountFragment();
+    public static AgentFragment createFor(String text) {
+        AgentFragment fragment = new AgentFragment();
         Bundle args = new Bundle();
-        args.putString(EXTRA_TEXT, text);
+        args.putString("text", text);
         fragment.setArguments(args);
         return fragment;
     }
@@ -58,26 +49,16 @@ public class AccountFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_account, container, false);
+        View v = inflater.inflate(R.layout.fragment_stock, container, false);
 
-        recyclerView = v.findViewById(R.id.rv_agen);
-
-        btLogout = v.findViewById(R.id.bt_logout);
-        btLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                getActivity().startActivity(intent);
-                getActivity().finish();
-            }
-        });
+        recyclerView = v.findViewById(R.id.rv_search_agen);
 
         return v;
     }
 
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
+        //edit query to select agen based on city and area
         Query query = FirebaseDatabase.getInstance().getReference().child("AGEN").orderByChild("CreateDate").startAt(-1 * new Date().getTime());
 
         FirebaseRecyclerOptions<Agen> options = new FirebaseRecyclerOptions.Builder<Agen>().setQuery(query, Agen.class).build();
@@ -89,13 +70,23 @@ public class AccountFragment extends Fragment {
 
                 return new ViewHolder(view);
             }
-
             @Override
-            protected void onBindViewHolder(ViewHolder holder, int position, Agen agen) {
-                holder.tvName.setText(agen.getAgentName());
-                holder.tvStatus.setText(agen.getStatus());
+            protected void onBindViewHolder(ViewHolder holder, int position, final Agen agen) {
+                holder.tvAgentName.setText(agen.getAgentName());
+                holder.tvAgentStatus.setText(agen.getStatus());
 
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), DetailAgentActivity.class);
+                        intent.putExtra("AgentName", agen.getAgentName());
+                        getActivity().startActivity(intent);
+                        getActivity().finish();
+                    }
+                });
             }
+
+
         };
 
         recyclerView.setAdapter(fbAdapter);
@@ -112,15 +103,13 @@ public class AccountFragment extends Fragment {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvName, tvStatus;
+        public TextView tvAgentName, tvAgentStatus;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+        public ViewHolder(View view) {
+            super(view);
 
-            tvName = itemView.findViewById(R.id.tv_agent_name);
-            tvStatus = itemView.findViewById(R.id.tv_agent_status);
-
+            tvAgentName = itemView.findViewById(R.id.tv_agent_name);
+            tvAgentStatus = itemView.findViewById(R.id.tv_agent_status);
         }
     }
-
 }

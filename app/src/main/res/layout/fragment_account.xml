@@ -47,7 +47,7 @@
                 android:layout_height="64dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="8dp"
-                android:src="@drawable/ic_patient_64dp" />
+                android:src="@drawable/ic_account_48dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1234-5678-9123"
+                        android:text="@string/citizen_id"
                         android:textColor="@color/c_black"
                         android:textStyle="bold" />
 
@@ -82,20 +82,20 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sri Astuti"
+                        android:text="@string/admin_name"
                         android:textColor="@color/c_black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Guardian Phone No"
+                        android:text="Phone Number"
                         android:textSize="10sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="+6285736260367"
+                        android:text="+628129810274"
                         android:textColor="@color/c_black"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -115,27 +115,28 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Avinguda Diagonal"
+                        android:text="@string/admin_address"
                         android:textColor="@color/c_black"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Blood Type"
-                        android:textSize="10sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Blood Type"-->
+                        <!--android:textSize="10sp" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="AB"
-                        android:textColor="@color/c_black"
-                        android:textStyle="bold" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="AB"-->
+                        <!--android:textColor="@color/c_black"-->
+                        <!--android:textStyle="bold" />-->
 
                     <TextView
                         android:id="@+id/bt_logout"
                         android:textSize="18sp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="38dp"
+                        android:layout_gravity="end"
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="LOG OUT"
@@ -158,7 +159,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Allergy"
+                android:text="Stok Gas"
                 android:textColor="@color/c_blue" />
 
             <View
@@ -169,7 +170,7 @@
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_allergy"
+            android:id="@+id/rv_agen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
