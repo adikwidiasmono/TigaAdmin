@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/c_green</color>
-    <color name="colorPrimaryDark">@color/c_green_dark</color>
-    <color name="colorAccent">@color/c_green_soft</color>
+    <color name="colorPrimary">@color/c_red_soft</color>
+    <color name="colorPrimaryDark">@color/c_red</color>
+    <color name="colorAccent">@color/c_blue</color>
 
     <color name="c_white">#FFFFFF</color>
     <color name="c_black">#000000</color>
-    <color name="c_blue_soft">#6bb6ff</color>
-    <color name="c_blue_dark">#006ad1</color>
-    <color name="c_blue">#1e90ff</color>
-    <color name="c_red_soft">#fce6e7</color>
-    <color name="c_red_dark">#e83641</color>
-    <color name="c_red">#f28e94</color>
-    <color name="c_yellow">#FDCD3F</color>
+    <!--<color name="c_blue_soft">#e5f3fc</color>-->
+    <!--<color name="c_blue_dark">#156DA5</color>-->
+    <!--<color name="c_blue">#1D9DF2</color>-->
+    <!--<color name="c_blue_dark">#0A4C64</color>-->
+    <!--<color name="c_blue">#3BA1A7</color>-->
+    <color name="c_red">#ff0000</color>
+    <color name="c_red_soft">#e83641</color>
+    <color name="c_blue_soft">#fce6e7</color>
+    <color name="c_blue_dark">#e83641</color>
+    <color name="c_blue">#f28e94</color>
+    <color name="c_yellow">#fff200</color>
     <color name="c_yellow_soft">#FEDC38</color>
     <color name="c_yellow_dark">#FDB60D</color>
-    <color name="c_green">#6DD21B</color>
-    <color name="c_green_dark">#539F14</color>
-    <color name="c_green_soft">#95D95D</color>
+    <color name="c_orange">#ff6a00</color>9
+    <color name="c_green">#75851d</color>
+    <color name="c_green_dark">#3e460f</color>
+    <color name="c_green_soft">#c9dd5e</color>
 
-    <color name="c_grey">#808080</color>
+    <color name="c_grey">#F4F4F4</color>
+    <color name="c_grey_2">#d1cfcf</color>
 
     <color name="textColorPrimary">#212121</color>
     <color name="textColorSecondary">#757575</color>
+
+    <color name="c_white_transparency">#99FFFFFF</color>
+    <color name="c_black_transparency">#99000000</color>
 </resources>

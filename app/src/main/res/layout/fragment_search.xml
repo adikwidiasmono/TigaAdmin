@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_content"
+    android:id="@+id/search_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -37,7 +37,7 @@
                     android:layout_marginLeft="4dp"
                     android:text="@string/provinsi"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="@color/c_green_dark" />
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <Spinner
                     android:id="@+id/province_list"
@@ -52,7 +52,7 @@
                     android:layout_marginLeft="4dp"
                     android:text="@string/kota"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="@color/c_green_dark" />
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <Spinner
                     android:id="@+id/city_list"
@@ -67,7 +67,7 @@
                     android:layout_marginLeft="4dp"
                     android:text="@string/area"
                     android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="@color/c_green_dark" />
+                    android:textColor="@color/colorPrimaryDark" />
 
                 <Spinner
                     android:id="@+id/area_list"

@@ -9,14 +9,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 import com.tiga.admin.DetailAgentActivity;
 import com.tiga.admin.R;
+import com.tiga.firebase.FirebaseDB;
 import com.tiga.recview.model.Agen;
 
 import java.util.Date;
@@ -60,7 +63,7 @@ public class AgentFragment extends Fragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         //edit query to select agen based on city and area
         Query query = FirebaseDatabase.getInstance()
-                .getReference().child("AGEN")
+                .getReference().child(FirebaseDB.REF_AGEN)
                 .orderByChild("CreateDate")
                 .startAt(-1 * new Date().getTime());
 
@@ -79,8 +82,16 @@ public class AgentFragment extends Fragment {
             }
             @Override
             protected void onBindViewHolder(ViewHolder holder, int position, final Agen agen) {
+                Picasso.with(getActivity())
+                        .load(agen.getImageURL())
+                        .placeholder(R.drawable.ic_loop_24dp)
+                        .error(R.drawable.ic_error)
+                        .into(holder.ivAgen);
+
                 holder.tvAgentName.setText(agen.getAgentName());
                 holder.tvAgentStatus.setText(agen.getStatus());
+                holder.tvAddress.setText(agen.getAgentAddress());
+                holder.tvAgentId.setText(agen.getAgentId());
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -92,8 +103,6 @@ public class AgentFragment extends Fragment {
                     }
                 });
             }
-
-
         };
 
         recyclerView.setAdapter(fbAdapter);
@@ -110,13 +119,19 @@ public class AgentFragment extends Fragment {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvAgentName, tvAgentStatus;
+        public TextView tvAgentName, tvAgentStatus, tvAddress, tvAgentId;
+        private ImageView ivAgen;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             tvAgentName = itemView.findViewById(R.id.tv_agent_name);
             tvAgentStatus = itemView.findViewById(R.id.tv_agent_status);
+            tvAddress = itemView.findViewById(R.id.tv_agent_address);
+            tvAgentId = itemView.findViewById(R.id.tv_agent_id);
+
+            ivAgen = itemView.findViewById(R.id.iv_agen_pic);
         }
     }
 }

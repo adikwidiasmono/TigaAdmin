@@ -15,10 +15,10 @@
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/tv_trans_date"
+            android:id="@+id/tv_restock_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_gravity="end"
             android:text="20 April 2018"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -36,7 +36,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/iv_item"
+                    android:id="@+id/iv_restock"
                     android:layout_width="64dp"
                     android:layout_height="64dp" />
 
@@ -49,30 +49,13 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_item_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NON-SUBSIDI"
-                    android:textColor="@color/c_green_dark"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_trans_detail"
+                    android:id="@+id/tv_restock_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="1 unit Bright 5.5Kg"
                     android:textColor="@color/c_black"
                     android:textSize="14sp" />
-
-                <!--<TextView
-                    android:id="@+id/tv_trans_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Rp 80.000"
-                    android:textColor="@color/c_black"
-                    android:textSize="14sp" />-->
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

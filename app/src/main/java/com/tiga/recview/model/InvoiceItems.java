@@ -4,7 +4,7 @@ public class InvoiceItems {
 
     private String ImageURL;
     private String Product;
-    private int Quantity;
+    private Long Quantity;
 
     public String getImageURL() {
         return ImageURL;
@@ -22,11 +22,11 @@ public class InvoiceItems {
         Product = product;
     }
 
-    public int getQuantity() {
+    public Long getQuantity() {
         return Quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Long quantity) {
         Quantity = quantity;
     }
 

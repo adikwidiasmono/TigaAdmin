@@ -21,6 +21,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
+import com.tiga.admin.DetailAgentActivity;
+import com.tiga.admin.DetailRiwayatActivity;
 import com.tiga.admin.R;
 import com.tiga.recview.model.Penjualan;
 import com.tiga.recview.model.Item;
@@ -39,9 +41,6 @@ public class TransactionFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private String strAgentId;
-
-
-
 
     public static TransactionFragment createFor(String text) {
         TransactionFragment fragment = new TransactionFragment();
@@ -78,9 +77,9 @@ public class TransactionFragment extends Fragment {
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         Query query = FirebaseDatabase.getInstance()
-                .getReference().child("PENJUALAN")
-                .orderByChild("AgentId")
-                .equalTo(strAgentId);
+                .getReference().child("PENJUALAN");
+//                .orderByChild("agentId")
+//                .equalTo(strAgentId);
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions
                 .Builder<Penjualan>()
@@ -97,7 +96,7 @@ public class TransactionFragment extends Fragment {
             }
 
             @Override
-            protected void onBindViewHolder(ViewHolder holder, int position, Penjualan penjualan) {
+            protected void onBindViewHolder(ViewHolder holder, int position, final Penjualan penjualan) {
                 StringBuilder sb = new StringBuilder();
                 for (TransactionItems ti : penjualan.getItems()) {
                     Picasso.with(getActivity())
@@ -108,7 +107,6 @@ public class TransactionFragment extends Fragment {
 
                     sb.append(ti.getQuantity() + " unit " + ti.getProduct() + "\n Rp " + ti.getPrice() + "\n");
                 }
-                holder.tvTransDetail.setText(sb.toString());
 
                 Timestamp stamp = new Timestamp(penjualan.getTransactionDate());
                 holder.tvTransDate.setText(new SimpleDateFormat("dd MMMM yyyy")
@@ -118,6 +116,15 @@ public class TransactionFragment extends Fragment {
                 if (penjualan.getKKSOwner()!=null) {
                     holder.tvItemType.setText(getResources().getString(R.string.pso));
                 } else holder.tvItemType.setText(getResources().getString(R.string.non_pso));
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), DetailRiwayatActivity.class);
+                        intent.putExtra("PENJUALAN", penjualan);
+                        getActivity().startActivity(intent);
+                    }
+                });
 
             }
         };

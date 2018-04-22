@@ -2,6 +2,7 @@ package com.tiga.firebase;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.tiga.recview.model.Stok_Request;
 
 
 /**
@@ -30,6 +31,14 @@ public class FirebaseDB {
 
     public DatabaseReference getDBReference(String refName) {
         return fDB.getReference(refName);
+    }
+
+    public void addRequest(Stok_Request stok_request) {
+        DatabaseReference fRef = fDB.getReference(REF_STOK_REQUEST);
+
+        String requestId = fRef.push().getKey();
+        stok_request.setInvoiceId(requestId);
+        fRef.child(requestId).setValue(stok_request);
     }
 
     /*public void addAllergy(Allergy allergy) {

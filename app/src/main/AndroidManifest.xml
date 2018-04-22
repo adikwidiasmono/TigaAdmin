@@ -24,6 +24,7 @@
         <activity android:name=".DetailAgentActivity" />
         <activity android:name=".TransactionHistoryActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".DetailRiwayatActivity"/>
 
     </application>
 

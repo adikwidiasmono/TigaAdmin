@@ -1,13 +1,14 @@
 package com.tiga.recview.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Penjualan {
+public class Penjualan implements Serializable{
 
     private String AgentId;
     private Long CreateDate;
     private List<TransactionItems> Items;
-    private int KKSNo;
+    private Long KKSNo;
     private String KKSOwner;
     private String PenjualanId;
     private Long TransactionDate;
@@ -36,11 +37,11 @@ public class Penjualan {
         Items = items;
     }
 
-    public int getKKSNo() {
+    public Long getKKSNo() {
         return KKSNo;
     }
 
-    public void setKKSNo(int KKSNo) {
+    public void setKKSNo(Long KKSNo) {
         this.KKSNo = KKSNo;
     }
 

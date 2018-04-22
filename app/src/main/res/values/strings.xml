@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Tepat Tiga</string>
-    <string name="admin_name">ADMIN</string>
-    <string name="admin_login">Admin Login</string>
-    <string name="admin_email">admin.tepat@mail.com</string>
+    <string name="admin_name">AGENT PUSAT</string>
+    <string name="admin_login">Agent Login</string>
+    <string name="admin_email">agen.tepat@mail.com</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -20,7 +20,7 @@
     <string name="citizen_id">2212113009800001</string>
     <string name="admin_address">Jakarta Selatan</string>
     <string name="gas_stock">Stok Gas : </string>
-    <string name="detail_agent">Detail Agen: </string>
+    <string name="detail_agent">Detail Pangkalan: </string>
     <string name="stok_bright5.5">Stok Bright 5,5Kg</string>
     <string name="stok_bright12">Stok Bright 12Kg</string>
     <string name="stok_elpiji3">Stok Elpiji 3Kg </string>
@@ -31,4 +31,13 @@
     <string name="input_date">Input Date</string>
     <string name="non_pso">NON-SUBSIDI</string>
     <string name="pso">SUBSIDI</string>
+    <string name="pilih_produk">Pilih Produk</string>
+    <string name="tanggal_kirim">Tanggal Pengiriman</string>
+    <string name="jumlah_produk">QTY</string>
+    <string name="tambah_stok">Tambah Stok Baru</string>
+    <string name="note_trx_success">Transaksi Berhasil</string>
+    <string name="note_nomor_kks">Nomor KKS</string>
+    <string name="note_pembelian">Pembelian : </string>
+
+
 </resources>

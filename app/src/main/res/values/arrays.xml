@@ -87,4 +87,13 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="ld_gasProduct">
+        <item>Bright Gas 3Kg</item>
+        <item>Bright Gas 5,5Kg</item>
+        <item>Elpiji Gas 3Kg</item>
+        <item>Elpiji Gas 12Kg</item>
+        <item>Ease Gas 3Kg</item>
+        <item>Ease Gas 9Kg</item>
+    </string-array>
+
 </resources>

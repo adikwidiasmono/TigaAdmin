@@ -1,9 +1,11 @@
 package com.tiga.recview.model;
 
-public class TransactionItems {
+import java.io.Serializable;
+
+public class TransactionItems implements Serializable{
 
     private String ImageURL;
-    private int Price;
+    private double Price;
     private String Product;
     private int Quantity;
 
@@ -15,11 +17,11 @@ public class TransactionItems {
         ImageURL = imageURL;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return Price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         Price = price;
     }
 

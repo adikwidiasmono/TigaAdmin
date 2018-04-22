@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.tiga.fragment.AccountFragment;
+import com.tiga.fragment.RestockFragment;
 import com.tiga.fragment.StockFragment;
 import com.tiga.menu.DrawerAdapter;
 import com.tiga.menu.DrawerItem;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
             }
             case MENU_3: {
                 toolbar.setTitle("Transaksi Agen");
-                selectedScreen = AccountFragment.createFor(screenTitles[position]);
+                selectedScreen = RestockFragment.createFor(screenTitles[position]);
                 break;
             }
             case MENU_4: {

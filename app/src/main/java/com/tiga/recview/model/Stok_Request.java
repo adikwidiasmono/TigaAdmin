@@ -5,7 +5,7 @@ import java.util.List;
 public class Stok_Request {
 
     private String AgentId;
-    private Long CreatedDate;
+    private Long CreateDate;
     private String InvoiceId;
     private List<InvoiceItems> Items;
     private String LastStatus;
@@ -19,12 +19,12 @@ public class Stok_Request {
         AgentId = agentId;
     }
 
-    public Long getCreatedDate() {
-        return CreatedDate;
+    public Long getCreateDate() {
+        return CreateDate;
     }
 
-    public void setCreatedDate(Long createdDate) {
-        CreatedDate = createdDate;
+    public void setCreateDate(Long createDate) {
+        CreateDate = createDate;
     }
 
     public String getInvoiceId() {
